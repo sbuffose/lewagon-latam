@@ -6,6 +6,10 @@ class PagesController < ApplicationController
       @dark_mode = nil
     end
 
+    if params["partner"].present?
+      @partner = params["partner"]
+    end
+
     @bootcamps = [
     {
       "name": 'Desarrollo Web & AI',

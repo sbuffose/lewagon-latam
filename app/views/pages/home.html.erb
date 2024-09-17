@@ -2,7 +2,12 @@
   <div class="bg-white dark:bg-gray-900 transition-colors duration-300">
     <header class="bg-white dark:bg-gray-800 shadow-sm transition-colors duration-300">
       <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <img src="assets/logo-lewagon.svg?height=40&width=120" alt="Logo" class="h-10" />
+        <div class="flex flex-wrap items-center gap-4 p-2">
+          <img src="assets/logo-lewagon.svg?height=40&width=120" alt="Logo" class="h-10" />
+          <% if @partner %>
+            <img src="assets/<%= @partner %>.svg" alt="Logo" class="h-10" />
+          <% end %>
+        </div>
         <nav class="hidden md:flex space-x-4">
           <a href="https://www.instagram.com/lewagonlatam/" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -296,7 +301,7 @@
         <div class="container mx-auto px-4 text-center">
           <h2 class="text-3xl font-bold mb-8 dark:text-white">Sé contratado por empresas líderes!</h2>
           <div class="flex flex-wrap justify-center items-center gap-12 p-2">
-            <% ['google', 'meta', 'airbnb', 'accenture', 'ibm', 'shopify'].each do |company| %>
+            <% ['google', 'mercadolibre', 'airbnb', 'accenture', 'notco', 'shopify'].each do |company| %>
               <img key="<%= company %>" src="assets/<%= company %>.svg?text=<%= company %>" alt="<%= company %>" class="h-8 dark:invert" />
             <% end %>
           </div>
