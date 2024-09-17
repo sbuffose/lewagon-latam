@@ -84,7 +84,10 @@ class PagesController < ApplicationController
       "syllabus": "https://drive.google.com/file/d/1kBzHaX9vggS6Cwfw5Mba5RDeCmck0XlF/view",
       "link": "https://start.lewagon.com/catalog",
       "restriction": "sincrónico"
-    },
+    }
+  ]
+
+    @async = [
     {
       "name": 'UX/UI Design',
       "hours": 24,

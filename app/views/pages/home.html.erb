@@ -3,9 +3,9 @@
     <header class="bg-white dark:bg-gray-800 shadow-sm transition-colors duration-300">
       <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <div class="flex flex-wrap items-center gap-4 p-2">
-          <img src="assets/logo-lewagon.svg?height=40&width=120" alt="Logo" class="h-10" />
+          <img src="/assets/images/logo-lewagon.svg?height=40&width=120" alt="Logo" class="h-10" />
           <% if @partner %>
-            <img src="assets/<%= @partner %>.svg" alt="Logo" class="h-10" />
+            <img src="/assets/images/<%= @partner %>.svg" alt="Logo" class="h-10" />
           <% end %>
         </div>
         <nav class="hidden md:flex space-x-4">
@@ -66,13 +66,13 @@
             </div>
             <div class="flex justify-center space-x-4">
               <a href="https://careerkarma.com/schools/le-wagon/" target='_blank'>
-                <img src="/assets/career-karma.svg?height=100&width=100" alt="Award 1" class="h-24" />
+                <img src="//assets/images/career-karma.svg?height=100&width=100" alt="Award 1" class="h-24" />
               </a>
               <a href="https://www.switchup.org/bootcamps/le-wagon" target='_blank'>
-                <img src="assets/switchup.png?height=100&width=100" alt="Award 2" class="h-24" />
+                <img src="/assets/images/switchup.png?height=100&width=100" alt="Award 2" class="h-24" />
               </a>
               <a href="https://www.coursereport.com/schools/le-wagon" target='_blank'>
-                <img src="assets/course-report.png?height=100&width=100" alt="Award 3" class="h-24" />
+                <img src="/assets/images/course-report.png?height=100&width=100" alt="Award 3" class="h-24" />
               </a>
             </div>
           </div>
@@ -280,8 +280,153 @@
 
           </section>
 
+          <section class="bg-blue-50 p-8 py-8 rounded-lg mt-12">
+            <h2 class="text-blue-600 font-semibold uppercase mb-2">Cursos asincrónicos</h2>
+            <h3 class="text-3xl font-bold mb-8">Aprende a tu ritmo</h3>
+
+            <div data-controller="modal-button">
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <% @courses.each_with_index do |course, index| %>
+                  <div key="<%= index %>" class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                    <div class="p-8">
+                      <div class="flex items-center justify-between mb-6">
+                        <div class="p-3 bg-blue-100 dark:bg-blue-900 rounded-full">
+                          <%= course[:icon].html_safe %>
+                        </div>
+                        <div class="text-right">
+                          <p class="text-lg font-light text-blue-600 dark:text-blue-400"><s><%= (course[:price].to_i / 6).round %> USD/mes</s></p>
+                          <p class="text-lg font-bold text-blue-600 dark:text-blue-400"><span></span><%= (course[:price].to_i / 6 * 0.8).round %> USD/mes</p>
+                          <p class="text-sm font-light text-blue-600 dark:text-blue-400"><span></span>x 6 meses</p>
+                        </div>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-2 dark:text-white"><%= course[:name] %></h3>
+                      <div class="flex mb-2 align-center">
+                        <p class="py-0 px-3 shrink text-sm text-white bg-blue-500 hover:bg-blue-600 rounded mr-3"><%= course[:restriction] %></p>
+                        <p class="py-0 px-3 shrink text-sm text-white bg-blue-500 hover:bg-blue-600 rounded"><%= course[:hours] %> horas</p>
+                      </div>
+                      <p class="text-gray-600 dark:text-gray-300 mb-6 h-28"><%= course[:description] %></p>
+
+                      <div class="space-y-4">
+                        <button class="w-full bg-blue-600 text-white py-2 px-4 mb-2 rounded-full hover:bg-blue-700 transition duration-300 flex items-center justify-center" data-action="click->modal-button#enable">
+                          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                          </svg>
+                        <span>Inscribirse</span>
+                        </button>
+                        <a href=<%= course[:syllabus] %> target="_blank">
+                          <button class="w-full text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition duration-300 flex items-center justify-center border border-blue-600 dark:border-blue-400 rounded-full py-2 px-4 hover:bg-blue-50 dark:hover:bg-blue-900" aria-label="Descargar syllabus de <%= course[:name] %>">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            <span>Descargar syllabus</span>
+                          </button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+
+                <div data-modal-button-target="modal" class="fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full hidden">
+                    <div class="relative top-20 mx-auto p-8 border w-full max-w-4xl shadow-2xl rounded-xl bg-white">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-2xl leading-6 font-semibold text-gray-900 mb-6">Seleccionar su país</h3>
+                                <div class="grid grid-cols-1 gap-4">
+                                    <a href="#" class="flex items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+
+                                      <svg class="w-8 h-8 mr-3" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Banda superior azul celeste -->
+                                        <path fill="#00a3e0" d="M0 0h36v12H0z"/>
+                                        <!-- Banda blanca central -->
+                                        <path fill="#fff" d="M0 12h36v12H0z"/>
+                                        <!-- Banda azul celeste inferior -->
+                                        <path fill="#00a3e0" d="M0 24h36v12H0z"/>
+                                        <!-- Sol de Mayo -->
+                                        <circle fill="#ffcc00" cx="18" cy="18" r="4.5"/>
+                                        <path fill="#ffcc00" d="M18 10.5V12m0-1.5L18 6m0 12l-1.5 3m1.5-3L18 18m-9-3h3.5m-3.5 0l-3 2m3.5-2l-2.5-3m10.5 3L18 20m4.5 0h-4.5m4.5-12l-3 2m3-2l-2.5 3"/>
+                                      </svg>
+                                      <div>
+                                          <p class="font-semibold text-gray-700">Argentina</p>
+                                          <p class="text-sm text-gray-500">Paga con MercadoPago</p>
+                                      </div>
+                                    </a>
+                                    <a href="#" class="flex items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+
+                                    <svg class="w-8 h-8 mr-3" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                      <!-- Cinta superior blanca -->
+                                      <path fill="#fff" d="M0 0h36v12H0z"/>
+                                      <!-- Cinta inferior roja -->
+                                      <path fill="#d52b1e" d="M0 12h36v12H0z"/>
+                                      <!-- Cuadro azul -->
+                                      <path fill="#0033a0" d="M0 0h14v14H0z"/>
+                                      <!-- Estrella blanca -->
+                                      <path fill="#fff" d="M7 2.5l1.2 3.7h3.9l-3.2 2.3 1.2 3.7-3.2-2.3-3.2 2.3 1.2-3.7-3.2-2.3h3.9z" transform="translate(1, 1)"/>
+                                    </svg>
+
+
+
+                                    <div>
+                                        <p class="font-semibold text-gray-700">Chile</p>
+                                        <p class="text-sm text-gray-500">Paga con MercadoPago</p>
+                                    </div>
+                                    </a>
+                                    <a href="#" class="flex items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                                        <svg class="w-8 h-8 mr-3" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><path fill="#141414" d="M4 5C1.791 5 0 6.791 0 9v18c0 2.209 1.791 4 4 4h28c2.209 0 4-1.791 4-4V9c0-2.209-1.791-4-4-4H4z"/><path fill="#FFF" d="M12 5h12v26H12z"/><path fill="#006847" d="M0 9c0-2.209 1.791-4 4-4h8v26H4c-2.209 0-4-1.791-4-4V9z"/><path fill="#CE1126" d="M24 5h8c2.209 0 4 1.791 4 4v18c0 2.209-1.791 4-4 4h-8V5z"/></svg>
+                                        <div>
+                                            <p class="font-semibold text-gray-700">Mexico</p>
+                                            <p class="text-sm text-gray-500">Paga con Stripe</p>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="flex items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                                        <svg class="w-8 h-8 mr-3" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><path fill="#EEE" d="M32 5H4C1.791 5 0 6.791 0 9v18c0 2.209 1.791 4 4 4h28c2.209 0 4-1.791 4-4V9c0-2.209-1.791-4-4-4z"/><path fill="#D91023" d="M0 9c0-2.209 1.791-4 4-4h8v26H4c-2.209 0-4-1.791-4-4V9z"/><path fill="#D91023" d="M24 5h8c2.209 0 4 1.791 4 4v18c0 2.209-1.791 4-4 4h-8V5z"/></svg>
+                                        <div>
+                                            <p class="font-semibold text-gray-700">Peru</p>
+                                            <p class="text-sm text-gray-500">Paga con MercadoPago</p>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="flex items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+
+                                      <svg class="w-8 h-8 mr-3" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Fondo blanco -->
+                                        <rect width="36" height="36" fill="#fff"/>
+
+                                        <!-- Moneda de Bitcoin -->
+                                        <circle cx="18" cy="18" r="10" fill="#f7931a"/>
+
+                                        <!-- Logotipo de Bitcoin en blanco dentro de la moneda -->
+                                        <path fill="#fff" d="M17.5 11h2v2.5h1.7c0.7 0 1.3 0.3 1.5 0.9l0.3 0.7h-3.5v2h3.8l0.3 0.6c0.2 0.6 0 1.4-0.8 1.7l-2.1 0.8 0.8 2.3-1.6 0.6-0.8-2.4h-1.5v2.5h-2V22h-1.7c-0.7 0-1.3-0.3-1.5-0.9l-0.3-0.6h3.5v-2h-3.8l-0.3-0.7c-0.2-0.6 0-1.4 0.8-1.7l2.1-0.8-0.8-2.3 1.6-0.6 0.8 2.4h1.5V11zm0 5h-3l-0.7 0.3c-0.3 0.1-0.3 0.4-0.1 0.6l0.3 0.7h3.5v-1.6zm2 4v-1.6h3l0.7-0.3c0.3-0.1 0.3-0.4 0.1-0.6l-0.3-0.7h-3.5V20z"/>
+                                      </svg>
+                                        <div>
+                                            <p class="font-semibold text-gray-700">Desde cualquier lado y moneda</p>
+                                            <p class="text-sm text-gray-500">Paga con OneInfinte</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="courseDetails" class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="text-xl text-indigo-600 font-semibold text-gray-900 mb-4">Crea tu futuro. Aprende Tech & AI.</h4>
+                                <div id="courseInfo" class="space-y-4">
+                                    <p class="text-gray-600">Explicación del proceso de pago y envío del curso.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <button id="closeModal" data-action="click->modal-button#disable" class="w-full bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out">
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+
+            </div>
+
+          </section>
+
+
         </div>
       </section>
+
 
       <section class="bg-indigo-900 dark:bg-indigo-800 text-white py-20 transition-colors duration-300">
         <div class="container mx-auto px-4">
@@ -302,7 +447,7 @@
           <h2 class="text-3xl font-bold mb-8 dark:text-white">Sé contratado por empresas líderes!</h2>
           <div class="flex flex-wrap justify-center items-center gap-12 p-2">
             <% ['google', 'mercadolibre', 'airbnb', 'accenture', 'notco', 'shopify'].each do |company| %>
-              <img key="<%= company %>" src="assets/<%= company %>.svg?text=<%= company %>" alt="<%= company %>" class="h-8 dark:invert" />
+              <img key="<%= company %>" src="/assets/images/<%= company %>.svg?text=<%= company %>" alt="<%= company %>" class="h-8 dark:invert" />
             <% end %>
           </div>
         </div>
