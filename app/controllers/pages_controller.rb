@@ -98,7 +98,7 @@ class PagesController < ApplicationController
         </svg>',
       "syllabus": "https://drive.google.com/file/d/1kBzHaX9vggS6Cwfw5Mba5RDeCmck0XlF/view",
       "link": "https://start.lewagon.com/catalog",
-      "restriction": "sincrónico"
+      "restriction": "asincrónico"
     },
     {
       "name": 'Intro a Desarrollo Web',
@@ -110,7 +110,7 @@ class PagesController < ApplicationController
         </svg>',
       "syllabus": "https://drive.google.com/file/d/1kBzHaX9vggS6Cwfw5Mba5RDeCmck0XlF/view",
       "link": "https://start.lewagon.com/catalog",
-      "restriction": "sincrónico"
+      "restriction": "asincrónico"
     },
     {
       "name": 'Intro a Análisis de Datos',
@@ -122,7 +122,7 @@ class PagesController < ApplicationController
         </svg>',
       "syllabus": "https://drive.google.com/file/d/1kBzHaX9vggS6Cwfw5Mba5RDeCmck0XlF/view",
       "link": "https://start.lewagon.com/catalog",
-      "restriction": "sincrónico"
+      "restriction": "asincrónico"
     }
   ]
   end
