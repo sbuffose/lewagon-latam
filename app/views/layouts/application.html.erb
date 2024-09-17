@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Le Wagon" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/apple.png" />
+
+    <meta property="og:site_name" content="Coding Bootcamp Le Wagon | Most Acclaimed Coding Bootcamp Worldwide" />
+    <meta property="og:title" content="Coding Bootcamp | Le Wagon" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.lewagon.com/" />
+    <meta property="og:image" content="meta.png" />
+        <meta property="og:description" content="Change your life, learn to code. Le Wagon is ranked as the world&#39;s best coding bootcamp and has enabled thousands of people to change their careers." />
+    <meta property="fb:admins" content="548348576" />
+    <meta property="fb:app_id" content="737501859652485" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Lewagonlatam">
+    <meta name="twitter:creator" content="@Lewagonlatam">
+    <meta name="twitter:image:src" content="assets/meta.png">
+
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>
