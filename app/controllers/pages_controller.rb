@@ -133,7 +133,7 @@ class PagesController < ApplicationController
       }
     ]
 
-    value = 1000
+    value = 915
     preference_data = {}
 
     short_courses = @async + @courses
@@ -162,7 +162,7 @@ class PagesController < ApplicationController
     @preference_ids = {}
 
     preference_data.each do |course, data|
-      sdk = Mercadopago::SDK.new("APP_USR-4960744873650178-091811-bf7ebf7316095174c5d3e6a39abccddf-1298786317")
+      sdk = Mercadopago::SDK.new("APP_USR-2708786615517071-092409-768b42e96d08c9a54b8682a547f93f43-1095029416")
 
       preference_response = sdk.preference.create(data)
       preference = preference_response[:response]

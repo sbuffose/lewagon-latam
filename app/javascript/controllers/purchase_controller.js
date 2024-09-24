@@ -33,7 +33,7 @@ export default class extends Controller {
   buy(event) {
     this.enable()
 
-    const mp = new MercadoPago('APP_USR-a0340b73-99d3-4c67-af70-cda1c2b549a5');
+    const mp = new MercadoPago('APP_USR-b627c34d-03c5-4ebc-93b8-82caba010cbc');
 
     mp.bricks().create("wallet", "wallet_container", {
       initialization: {
