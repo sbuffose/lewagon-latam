@@ -151,7 +151,7 @@ class PagesController < ApplicationController
           }],
           back_urls: {
             success: course[:success],
-            failure: "/failure.html",
+            failure: "https://www.leagon.com.ar/failure.html",
           },
           expires: true,
           expiration_date_from: "2023-02-01T12:00:00.000-04:00",
@@ -162,7 +162,7 @@ class PagesController < ApplicationController
     @preference_ids = {}
 
     preference_data.each do |course, data|
-      sdk = Mercadopago::SDK.new("APP_USR-8187849894420733-091811-9c117aab94ddb18c41dc7ea446d5417e-1994986217")
+      sdk = Mercadopago::SDK.new("APP_USR-a0340b73-99d3-4c67-af70-cda1c2b549a5")
 
       preference_response = sdk.preference.create(data)
       preference = preference_response[:response]
