@@ -137,13 +137,16 @@
             </div>
           </section>
 
-          <div data-controller="modal-button">
-            <% @preference_ids_per_country.each do |currency, courses| %>
-              <% courses.each do |name, preference| %>
-                <span data-modal-button-target="preferenceId" data-country="<%= currency.to_s %>" data-course="<%= name %>" data-preference-id="<%= preference %>"></span>
-              <% end %>
-            <% end %>
-            <div id="wallet_container" class="hidden" data-modal-button-target="buy">
+          <div data-controller="purchase">
+            <div class="hidden" data-purchase-target="modal">
+                <button class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-center transition duration-300"
+                        data-action="click->purchase#submit"
+                >
+                    Pagar con MercadoPago
+                </button>
+            </div>
+
+            <div id="wallet_container" class="hidden" data-purchase-target="wallet">
             </div>
 
             <section class="bg-red-50 p-8 py-8 rounded-lg mt-12">
@@ -173,11 +176,11 @@
 
                       <div class="space-y-4">
                         <button class="w-full bg-red-600 text-white py-2 px-4 mb-2 rounded-full hover:bg-red-700 transition duration-300 flex items-center justify-center"
-                                data-modal-button-target="selected"
-                                data-action="click->modal-button#enable"
-                                data-modal-button-course-name="<%= course[:name] %>"
-                                data-modal-button-course-price="<%= course[:price] %>"
-                                data-modal-button-course-description="<%= course[:description] %>"
+                                data-action="click->purchase#buy"
+                                data-purchase-course-name="<%= course[:name] %>"
+                                data-purchase-course-price="<%= course[:price] %>"
+                                data-purchase-course-description="<%= course[:description] %>"
+                                data-purchase-preference-id="<%= @preference_ids[course[:name]] %>"
                                 >
                           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -226,10 +229,11 @@
 
                         <div class="space-y-4">
                           <button class="w-full bg-indigo-600 text-white py-2 px-4 mb-2 rounded-full hover:bg-indigo-700 transition duration-300 flex items-center justify-center"
-                                  data-action="click->modal-button#enable"
-                                  data-modal-button-course-name="<%= course[:name] %>"
-                                  data-modal-button-course-price="<%= course[:price] %>"
-                                  data-modal-button-course-description="<%= course[:description] %>"
+                                data-action="click->purchase#buy"
+                                data-purchase-course-name="<%= course[:name] %>"
+                                data-purchase-course-price="<%= course[:price] %>"
+                                data-purchase-course-description="<%= course[:description] %>"
+                                data-purchase-preference-id="<%= @preference_ids[course[:name]] %>"
                                   >
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -250,102 +254,6 @@
                   <% end %>
                 </div>
             </section>
-
-
-            <div data-modal-button-target="modal" class="fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full hidden">
-                <div class="relative top-20 mx-auto p-8 border w-full max-w-4xl shadow-2xl rounded-xl bg-white">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <h3 class="text-2xl leading-6 font-semibold text-gray-900 mb-6">Seleccionar su país</h3>
-                            <div class="grid grid-cols-1 gap-4">
-                                <a href="/?country=ars<%= "&course=#{params['course']}" if params["course"] %>" target="_top" data-modal-button-target="url" class="flex items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition duration-300 ease-in-out transform hover:scale-105">
-                                  <svg class="w-8 h-8 mr-3" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                                    <!-- Banda superior azul celeste -->
-                                    <path fill="#00a3e0" d="M0 0h36v12H0z"/>
-                                    <!-- Banda blanca central -->
-                                    <path fill="#fff" d="M0 12h36v12H0z"/>
-                                    <!-- Banda azul celeste inferior -->
-                                    <path fill="#00a3e0" d="M0 24h36v12H0z"/>
-                                    <!-- Sol de Mayo -->
-                                    <circle fill="#ffcc00" cx="18" cy="18" r="4.5"/>
-                                    <path fill="#ffcc00" d="M18 10.5V12m0-1.5L18 6m0 12l-1.5 3m1.5-3L18 18m-9-3h3.5m-3.5 0l-3 2m3.5-2l-2.5-3m10.5 3L18 20m4.5 0h-4.5m4.5-12l-3 2m3-2l-2.5 3"/>
-                                  </svg>
-                                  <div>
-                                      <p class="font-semibold text-gray-700">Argentina</p>
-                                      <p class="text-sm text-gray-500">Paga con MercadoPago</p>
-                                  </div>
-                                </a>
-                                <a href="/?country=clp<%= "&course=#{params['course']}" if params["course"] %>" target="_top" class="flex items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition duration-300 ease-in-out transform hover:scale-105">
-
-                                <svg class="w-8 h-8 mr-3" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                                  <!-- Cinta superior blanca -->
-                                  <path fill="#fff" d="M0 0h36v12H0z"/>
-                                  <!-- Cinta inferior roja -->
-                                  <path fill="#d52b1e" d="M0 12h36v12H0z"/>
-                                  <!-- Cuadro azul -->
-                                  <path fill="#0033a0" d="M0 0h14v14H0z"/>
-                                  <!-- Estrella blanca -->
-                                  <path fill="#fff" d="M7 2.5l1.2 3.7h3.9l-3.2 2.3 1.2 3.7-3.2-2.3-3.2 2.3 1.2-3.7-3.2-2.3h3.9z" transform="translate(1, 1)"/>
-                                </svg>
-
-                                <div>
-                                    <p class="font-semibold text-gray-700">Chile</p>
-                                    <p class="text-sm text-gray-500">Paga con MercadoPago</p>
-                                </div>
-                                </a>
-                                <a href="/?country=mxn<%= "&course=#{params['course']}" if params["course"] %>" target="_top" class="flex items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition duration-300 ease-in-out transform hover:scale-105">
-                                    <svg class="w-8 h-8 mr-3" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><path fill="#141414" d="M4 5C1.791 5 0 6.791 0 9v18c0 2.209 1.791 4 4 4h28c2.209 0 4-1.791 4-4V9c0-2.209-1.791-4-4-4H4z"/><path fill="#FFF" d="M12 5h12v26H12z"/><path fill="#006847" d="M0 9c0-2.209 1.791-4 4-4h8v26H4c-2.209 0-4-1.791-4-4V9z"/><path fill="#CE1126" d="M24 5h8c2.209 0 4 1.791 4 4v18c0 2.209-1.791 4-4 4h-8V5z"/></svg>
-                                    <div>
-                                        <p class="font-semibold text-gray-700">Mexico</p>
-                                        <p class="text-sm text-gray-500">Paga con Stripe</p>
-                                    </div>
-                                </a>
-                                <a href="/?country=pen<%= "&course=#{params['course']}" if params["course"] %>" target="_top" class="flex items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition duration-300 ease-in-out transform hover:scale-105">
-                                    <svg class="w-8 h-8 mr-3" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><path fill="#EEE" d="M32 5H4C1.791 5 0 6.791 0 9v18c0 2.209 1.791 4 4 4h28c2.209 0 4-1.791 4-4V9c0-2.209-1.791-4-4-4z"/><path fill="#D91023" d="M0 9c0-2.209 1.791-4 4-4h8v26H4c-2.209 0-4-1.791-4-4V9z"/><path fill="#D91023" d="M24 5h8c2.209 0 4 1.791 4 4v18c0 2.209-1.791 4-4 4h-8V5z"/></svg>
-                                    <div>
-                                        <p class="font-semibold text-gray-700">Peru</p>
-                                        <p class="text-sm text-gray-500">Paga con MercadoPago</p>
-                                    </div>
-                                </a>
-                                <a href="/?country=onl<%= "&course=#{params['course']}" if params["course"] %>" target="_top" class="flex items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition duration-300 ease-in-out transform hover:scale-105">
-
-                                  <svg class="w-8 h-8 mr-3" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                                    <!-- Fondo blanco -->
-                                    <rect width="36" height="36" fill="#fff"/>
-
-                                    <!-- Moneda de Bitcoin -->
-                                    <circle cx="18" cy="18" r="10" fill="#f7931a"/>
-
-                                    <!-- Logotipo de Bitcoin en blanco dentro de la moneda -->
-                                    <path fill="#fff" d="M17.5 11h2v2.5h1.7c0.7 0 1.3 0.3 1.5 0.9l0.3 0.7h-3.5v2h3.8l0.3 0.6c0.2 0.6 0 1.4-0.8 1.7l-2.1 0.8 0.8 2.3-1.6 0.6-0.8-2.4h-1.5v2.5h-2V22h-1.7c-0.7 0-1.3-0.3-1.5-0.9l-0.3-0.6h3.5v-2h-3.8l-0.3-0.7c-0.2-0.6 0-1.4 0.8-1.7l2.1-0.8-0.8-2.3 1.6-0.6 0.8 2.4h1.5V11zm0 5h-3l-0.7 0.3c-0.3 0.1-0.3 0.4-0.1 0.6l0.3 0.7h3.5v-1.6zm2 4v-1.6h3l0.7-0.3c0.3-0.1 0.3-0.4 0.1-0.6l-0.3-0.7h-3.5V20z"/>
-                                  </svg>
-                                    <div>
-                                        <p class="font-semibold text-gray-700">Desde cualquier lado y moneda</p>
-                                        <p class="text-sm text-gray-500">Paga con OneInfinte</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div id="courseDetails" class="bg-gray-50 p-6 rounded-lg">
-                            <h4 class="text-xl text-indigo-600 font-semibold text-gray-900 mb-4">Crea tu futuro. Aprende Tech & AI.</h4>
-                            <div id="courseInfo" class="space-y-4">
-                                <p class="text-gray-600">Explicación del proceso de pago y envío del curso.</p>
-
-                                <div class="flex">
-                                  <button data-action="click->modal-button#buy" class="grow bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300">Quiero comprar el programa!</button>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-8">
-                        <button id="closeModal" data-action="click->modal-button#disable" class="w-full bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out">
-                            Cancelar
-                        </button>
-                    </div>
-                </div>
-              </div>
-
           </div>
         </div>
       </section>

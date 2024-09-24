@@ -133,54 +133,41 @@ class PagesController < ApplicationController
       }
     ]
 
-    currencies = { "ars": 1000, "clp": 900, "mxn": 16, "pen": 4 }
-    preference_datas = {}
+    value = 1000
+    preference_data = {}
 
-    currencies.each do |currency, value|
-      preference_datas[currency] = {}
-      short_courses = @async + @courses
-      short_courses.each do |course|
-        preference_datas[currency][course[:name]] =
-          {
-            items: [{
-              id: "#{currency}-#{course[:name]}",
-              title: course[:name],
-              currency_id: currency.upcase,
-              picture_url: "https://www.mercadopago.com/org-img/MP3/home/logomp3.gif",
-              description: course[:description],
-              category_id: "art",
-              quantity: 1,
-              unit_price: course[:price] * value.to_f
-            }],
-            back_urls: {
-              success: course[:success],
-              failure: "/failure.html",
-            },
-            expires: true,
-            expiration_date_from: "2023-02-01T12:00:00.000-04:00",
-            expiration_date_to: "2026-02-28T12:00:00.000-04:00"
-          }
-      end
+    short_courses = @async + @courses
+    short_courses.each do |course|
+      preference_data[course[:name]] = {
+          items: [{
+            id: Time.now.to_i.to_s,
+            title: course[:name],
+            currency_id: "ARS",
+            picture_url: "https://www.mercadopago.com/org-img/MP3/home/logomp3.gif",
+            description: course[:description],
+            category_id: "art",
+            quantity: 1,
+            unit_price: course[:price] * value.to_f
+          }],
+          back_urls: {
+            success: course[:success],
+            failure: "/failure.html",
+          },
+          expires: true,
+          expiration_date_from: "2023-02-01T12:00:00.000-04:00",
+          expiration_date_to: "2026-02-28T12:00:00.000-04:00"
+        }
     end
 
-    access_token = {
-      "ars": "APP_USR-8187849894420733-091811-9c117aab94ddb18c41dc7ea446d5417e-1994986217",
-      "clp": "APP_USR-8187849894420733-091811-9c117aab94ddb18c41dc7ea446d5417e-1994986217",
-      "pen": "APP_USR-8187849894420733-091811-9c117aab94ddb18c41dc7ea446d5417e-1994986217",
-      "mxn": "APP_USR-8187849894420733-091811-9c117aab94ddb18c41dc7ea446d5417e-1994986217"
-    }
-    @preference_ids_per_country = {}
+    @preference_ids = {}
 
-    currencies.each do |currency, value|
-      @preference_ids_per_country[currency] = {}
-      preference_datas[currency].each do |course, data|
-        sdk = Mercadopago::SDK.new(access_token[currency])
+    preference_data.each do |course, data|
+      sdk = Mercadopago::SDK.new("APP_USR-8187849894420733-091811-9c117aab94ddb18c41dc7ea446d5417e-1994986217")
 
-        preference_response = sdk.preference.create(data)
-        preference = preference_response[:response]
+      preference_response = sdk.preference.create(data)
+      preference = preference_response[:response]
 
-        @preference_ids_per_country[currency][course] = preference['id']
-      end
+      @preference_ids[course] = preference['id']
     end
   end
 end
