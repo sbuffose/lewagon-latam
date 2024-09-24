@@ -162,7 +162,7 @@ class PagesController < ApplicationController
     @preference_ids = {}
 
     preference_data.each do |course, data|
-      sdk = Mercadopago::SDK.new("APP_USR-a0340b73-99d3-4c67-af70-cda1c2b549a5")
+      sdk = Mercadopago::SDK.new("APP_USR-4960744873650178-091811-bf7ebf7316095174c5d3e6a39abccddf-1298786317")
 
       preference_response = sdk.preference.create(data)
       preference = preference_response[:response]
