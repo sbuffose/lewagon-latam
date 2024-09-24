@@ -62,7 +62,7 @@ class PagesController < ApplicationController
         "syllabus": "https://drive.google.com/file/d/1kBzHaX9vggS6Cwfw5Mba5RDeCmck0XlF/view",
         "link": "https://start.lewagon.com/catalog",
         "restriction": "sincrónico",
-        "success": "https://learn.lewagon.com/onboarding?secure_token=710a23028e151c1eca5d19323e89b04c",
+        "success": "https://learn.lewagon.com/onboarding?secure_token=43fb269d2fe3d15e239714b0f71d0ecf",
       },
       {
         "name": 'Data Analytics Essentials',
@@ -75,7 +75,7 @@ class PagesController < ApplicationController
         "syllabus": "https://drive.google.com/file/d/1kBzHaX9vggS6Cwfw5Mba5RDeCmck0XlF/view",
         "link": "https://start.lewagon.com/catalog",
         "restriction": "sincrónico",
-        "success": "https://learn.lewagon.com/onboarding?secure_token=710a23028e151c1eca5d19323e89b04c",
+        "success": "https://www.lewagon.com/es/startups",
       },
       {
         "name": 'Data Analytics con Power BI',
@@ -88,7 +88,7 @@ class PagesController < ApplicationController
         "syllabus": "https://drive.google.com/file/d/1kBzHaX9vggS6Cwfw5Mba5RDeCmck0XlF/view",
         "link": "https://start.lewagon.com/catalog",
         "restriction": "sincrónico",
-        "success": "https://learn.lewagon.com/onboarding?secure_token=710a23028e151c1eca5d19323e89b04c",
+        "success": "https://learn.lewagon.com/onboarding?secure_token=97842fd77d872e458b1c90fef0702855",
       }
     ]
     @async = [
@@ -103,7 +103,7 @@ class PagesController < ApplicationController
         "syllabus": "https://drive.google.com/file/d/1kBzHaX9vggS6Cwfw5Mba5RDeCmck0XlF/view",
         "link": "https://start.lewagon.com/catalog",
         "restriction": "asincrónico",
-        "success": "https://learn.lewagon.com/onboarding?secure_token=710a23028e151c1eca5d19323e89b04c",
+        "success": "https://learn.lewagon.com/onboarding?secure_token=44308bf17e0f08e17561b108ccd26e3f",
       },
       {
         "name": 'Intro a Desarrollo Web',
@@ -116,7 +116,7 @@ class PagesController < ApplicationController
         "syllabus": "https://drive.google.com/file/d/1kBzHaX9vggS6Cwfw5Mba5RDeCmck0XlF/view",
         "link": "https://start.lewagon.com/catalog",
         "restriction": "asincrónico",
-        "success": "https://learn.lewagon.com/onboarding?secure_token=710a23028e151c1eca5d19323e89b04c",
+        "success": "https://learn.lewagon.com/onboarding?secure_token=1fe5e7211c121893bf9fd22e6f9700e3",
       },
       {
         "name": 'Intro a Análisis de Datos',
@@ -129,7 +129,7 @@ class PagesController < ApplicationController
         "syllabus": "https://drive.google.com/file/d/1kBzHaX9vggS6Cwfw5Mba5RDeCmck0XlF/view",
         "link": "https://start.lewagon.com/catalog",
         "restriction": "asincrónico",
-        "success": "https://learn.lewagon.com/onboarding?secure_token=710a23028e151c1eca5d19323e89b04c",
+        "success": "https://learn.lewagon.com/onboarding?secure_token=2595ed03a988255ae4b262b8821da944",
       }
     ]
 

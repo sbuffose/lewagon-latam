@@ -1,15 +1,21 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ["wallet", "modal"]
+  static targets = ["wallet", "modal", "real", "original", "description", "hours", "title", "restriction"]
   static values = {
     courseName: String,
     coursePrice: String,
     courseDescription: String,
-    preferenceId: String
+    preferenceId: String,
+    OriginalPrice: String,
+    RealPrice: String,
+    Description: String,
+    Hours: String,
+    Restriction: String,
+    Title: String
   }
 
-  async connect() {
+  connect() {
   }
 
   submit() {
@@ -17,7 +23,6 @@ export default class extends Controller {
   }
 
   enable() {
-    console.log(this.modalTarget)
     this.modalTarget.classList.remove("hidden")
   }
 
@@ -26,6 +31,8 @@ export default class extends Controller {
   }
 
   buy(event) {
+    this.enable()
+
     const mp = new MercadoPago('APP_USR-5898eb74-47b0-4cda-ae7f-86dbb5010d9b');
 
     mp.bricks().create("wallet", "wallet_container", {
@@ -39,6 +46,11 @@ export default class extends Controller {
       },
     })
 
-    this.enable()
+    this.realTarget.innerText = `${event.currentTarget.dataset.purchaseRealPrice} USD/mes`
+    this.originalTarget.innerText = `${event.currentTarget.dataset.purchaseOriginalPrice} USD/mes`
+    this.descriptionTarget.innerText = event.currentTarget.dataset.purchaseCourseDescription
+    this.hoursTarget.innerText = `${event.currentTarget.dataset.purchaseHours} horas`
+    this.restrictionTarget.innerText = event.currentTarget.dataset.purchaseRestriction
+    this.titleTarget.innerText = event.currentTarget.dataset.purchaseCourseName
   }
 }
