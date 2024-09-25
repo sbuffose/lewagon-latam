@@ -72,7 +72,7 @@ class PagesController < ApplicationController
         "icon": '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
           </svg>',
-        "syllabus": "https://drive.google.com/file/d/1kBzHaX9vggS6Cwfw5Mba5RDeCmck0XlF/view",
+        "syllabus": "https://drive.google.com/file/d/1Bq8tx1ygvLVMROHyyMZuQyNGUULc2v7s/view",
         "link": "https://start.lewagon.com/catalog",
         "restriction": "sincrónico",
         "success": "https://www.lewagon.com/es/startups",
@@ -85,7 +85,7 @@ class PagesController < ApplicationController
         "icon": '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
           </svg>',
-        "syllabus": "https://drive.google.com/file/d/1kBzHaX9vggS6Cwfw5Mba5RDeCmck0XlF/view",
+        "syllabus": "https://drive.google.com/file/d/1J-A9RNN1On-xQKPYd0IvqY6NPrIIeMPT/view?usp=sharing",
         "link": "https://start.lewagon.com/catalog",
         "restriction": "sincrónico",
         "success": "https://learn.lewagon.com/onboarding?secure_token=97842fd77d872e458b1c90fef0702855",
