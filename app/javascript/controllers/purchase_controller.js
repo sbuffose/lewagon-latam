@@ -28,6 +28,7 @@ export default class extends Controller {
 
   disable() {
     this.modalTarget.classList.add("hidden")
+    this.walletTarget.innerHTML = ""
   }
 
   buy(event) {
