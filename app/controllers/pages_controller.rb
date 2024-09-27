@@ -55,7 +55,7 @@ class PagesController < ApplicationController
         "name": 'Webflow',
         "hours": 40,
         "price": 800,
-        "description": 'Imagina y crea tu propia página web de la A a la Z sin tener que programar.',
+        "description": 'Imagina y crea tu propia página web de principio a fin sin necesidad de programar. Con Webflow, puedes diseñar, construir y lanzar una web funcional utilizando una interfaz visual intuitiva.',
         "icon": '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
           </svg>',
@@ -100,7 +100,7 @@ class PagesController < ApplicationController
         "icon": '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
           </svg>',
-        "syllabus": "https://drive.google.com/file/d/1kBzHaX9vggS6Cwfw5Mba5RDeCmck0XlF/view",
+        "syllabus": "https://drive.google.com/file/d/1CGCKxIku6Z7N-hamogUC-ykn7OdSAbli/view",
         "link": "https://start.lewagon.com/catalog",
         "restriction": "asincrónico",
         "success": "https://learn.lewagon.com/onboarding?secure_token=44308bf17e0f08e17561b108ccd26e3f",
@@ -113,7 +113,7 @@ class PagesController < ApplicationController
         "icon": '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
           </svg>',
-        "syllabus": "https://drive.google.com/file/d/1kBzHaX9vggS6Cwfw5Mba5RDeCmck0XlF/view",
+        "syllabus": "https://drive.google.com/file/d/1Bm7kEGYU2ODbk79hdHD1n5co5o4Ssswp/view",
         "link": "https://start.lewagon.com/catalog",
         "restriction": "asincrónico",
         "success": "https://learn.lewagon.com/onboarding?secure_token=1fe5e7211c121893bf9fd22e6f9700e3",
@@ -126,7 +126,7 @@ class PagesController < ApplicationController
         "icon": '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
           </svg>',
-        "syllabus": "https://drive.google.com/file/d/1kBzHaX9vggS6Cwfw5Mba5RDeCmck0XlF/view",
+        "syllabus": "https://drive.google.com/file/d/123Ww0CmRl6823zl12s4nZcwvJLCeazrE/view",
         "link": "https://start.lewagon.com/catalog",
         "restriction": "asincrónico",
         "success": "https://learn.lewagon.com/onboarding?secure_token=2595ed03a988255ae4b262b8821da944",
