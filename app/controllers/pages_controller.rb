@@ -57,7 +57,7 @@ class PagesController < ApplicationController
         "price": 800,
         "description": 'Imagina y crea tu propia página web de principio a fin sin necesidad de programar. Con Webflow, puedes diseñar, construir y lanzar una web funcional utilizando una interfaz visual intuitiva.',
         "icon": '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
           </svg>',
         "syllabus": "https://drive.google.com/file/d/1kBzHaX9vggS6Cwfw5Mba5RDeCmck0XlF/view",
         "link": "https://start.lewagon.com/catalog",
@@ -70,7 +70,7 @@ class PagesController < ApplicationController
         "price": 800,
         "description": 'Gana autonomía en el uso de los datos gracias a SQL, Google Data Studio y Google Sheets, y aprende a realizar análisis basados en datos corporativos reales.',
         "icon": '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
           </svg>',
         "syllabus": "https://drive.google.com/file/d/1Bq8tx1ygvLVMROHyyMZuQyNGUULc2v7s/view",
         "link": "https://start.lewagon.com/catalog",
@@ -83,7 +83,7 @@ class PagesController < ApplicationController
         "price": 800,
         "description": 'Optimiza el procesamiento de grandes bases de datos para la toma de decisiones con el dominio de Excel y Power BI.',
         "icon": '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
           </svg>',
         "syllabus": "https://drive.google.com/file/d/1Jy82sqB2M6MMNvh1Ep7TXcwcMgmwnMlC/view",
         "link": "https://start.lewagon.com/catalog",
@@ -111,7 +111,7 @@ class PagesController < ApplicationController
         "price": 200,
         "description": 'Este programa busca darle la introducción al desarrollo de plataforma web. Durante el programa aprenderás sobre HTML, CSS, JavaScript, Ruby, Figma, Git, y la terminal.',
         "icon": '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
           </svg>',
         "syllabus": "https://drive.google.com/file/d/1Bm7kEGYU2ODbk79hdHD1n5co5o4Ssswp/view",
         "link": "https://start.lewagon.com/catalog",
@@ -124,7 +124,7 @@ class PagesController < ApplicationController
         "price": 200,
         "description": 'Adquieres los conocimientos necesarios para poder analizar datos y tranformarlos en oportunidades de negocio. Toma decisiones inteligentemente. Aprenderás sobra Looker Studio, SQL y más.',
         "icon": '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
           </svg>',
         "syllabus": "https://drive.google.com/file/d/123Ww0CmRl6823zl12s4nZcwvJLCeazrE/view",
         "link": "https://start.lewagon.com/catalog",
