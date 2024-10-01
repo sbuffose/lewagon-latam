@@ -18,6 +18,42 @@ export default class extends Controller {
   connect() {
   }
 
+  download(event) {
+    event.preventDefault()
+
+    fbq('trackCustom', 'descarga_syllabus_cursos');
+    gtag('event', 'descarga_syllabus_cursos');
+
+    window.open(event.currentTarget.href, '_blank').focus();
+  }
+
+  downloadSyllabus(event) {
+    event.preventDefault()
+
+    fbq('trackCustom', 'descarga_syllabus_bootcamp');
+    gtag('event', 'descarga_syllabus_bootcamp');
+
+    window.open(event.currentTarget.href, '_blank').focus();
+  }
+
+  launch(event) {
+    event.preventDefault()
+
+    fbq('trackCustom', 'interes_bootcamp');
+    gtag('event', 'interes_bootcamp');
+
+    window.open(event.currentTarget.href, '_blank').focus();
+  }
+
+  contact(event) {
+    event.preventDefault()
+
+    fbq('trackCustom', 'contacto');
+    gtag('event', 'contacto');
+
+    window.open(event.currentTarget.href, '_blank').focus();
+  }
+
   submit() {
     this.walletTarget.querySelector("button").click()
   }
@@ -33,6 +69,9 @@ export default class extends Controller {
 
   buy(event) {
     this.enable()
+
+    fbq('trackCustom', event.currentTarget.dataset.purchaseTrigger);
+    gtag('event', event.currentTarget.dataset.purchaseTrigger);
 
     const mp = new MercadoPago('APP_USR-a0340b73-99d3-4c67-af70-cda1c2b549a5');
 

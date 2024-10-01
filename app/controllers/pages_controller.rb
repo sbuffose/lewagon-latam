@@ -63,6 +63,7 @@ class PagesController < ApplicationController
         "link": "https://start.lewagon.com/catalog",
         "restriction": "sincrónico",
         "success": "https://learn.lewagon.com/onboarding?secure_token=43fb269d2fe3d15e239714b0f71d0ecf",
+        "event": "interes_curso_async"
       },
       {
         "name": 'Data Analytics Essentials',
@@ -76,6 +77,7 @@ class PagesController < ApplicationController
         "link": "https://start.lewagon.com/catalog",
         "restriction": "sincrónico",
         "success": "https://www.lewagon.com/es/startups",
+        "event": "interes_curso_async"
       },
       {
         "name": 'Data Analytics con Power BI',
@@ -89,6 +91,7 @@ class PagesController < ApplicationController
         "link": "https://start.lewagon.com/catalog",
         "restriction": "sincrónico",
         "success": "https://learn.lewagon.com/onboarding?secure_token=97842fd77d872e458b1c90fef0702855",
+        "event": "interes_curso_async"
       }
     ]
     @async = [
@@ -104,6 +107,7 @@ class PagesController < ApplicationController
         "link": "https://start.lewagon.com/catalog",
         "restriction": "asincrónico",
         "success": "https://learn.lewagon.com/onboarding?secure_token=44308bf17e0f08e17561b108ccd26e3f",
+        "event": "interes_curso_sync"
       },
       {
         "name": 'Intro a Desarrollo Web',
@@ -117,6 +121,7 @@ class PagesController < ApplicationController
         "link": "https://start.lewagon.com/catalog",
         "restriction": "asincrónico",
         "success": "https://learn.lewagon.com/onboarding?secure_token=1fe5e7211c121893bf9fd22e6f9700e3",
+        "event": "interes_curso_sync"
       },
       {
         "name": 'Intro a Análisis de Datos',
@@ -130,6 +135,7 @@ class PagesController < ApplicationController
         "link": "https://start.lewagon.com/catalog",
         "restriction": "asincrónico",
         "success": "https://learn.lewagon.com/onboarding?secure_token=2595ed03a988255ae4b262b8821da944",
+        "event": "interes_curso_sync"
       }
     ]
 
