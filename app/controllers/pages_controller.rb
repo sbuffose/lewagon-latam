@@ -153,9 +153,12 @@ class PagesController < ApplicationController
             success: course[:success],
             failure: "https://www.leagon.com.ar/failure.html",
           },
+          auto_return: "approved",
           expires: true,
           expiration_date_from: "2023-02-01T12:00:00.000-04:00",
-          expiration_date_to: "2026-02-28T12:00:00.000-04:00"
+          expiration_date_to: "2026-02-28T12:00:00.000-04:00",
+          payment_methods: { installments: 6 },
+          external_reference: "Partner: #{@partner}"
         }
     end
 
