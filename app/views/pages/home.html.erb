@@ -42,7 +42,7 @@
             </a>
           <% end %>
           <% connector = @partner ? "-#{@partner}" : "" %>
-          <a href=<%= "https://info.lewagon.com/direct-apply-latam#{connector}" %> target="_blank" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300 hidden md:flex" data-action="click->event#track" data-trigger="interes_bootcamp">Postulate a un bootcamp!</a>
+          <a href=<%= "https://info.lewagon.com/direct-apply-latam#{connector}" %> target="_blank" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300 hidden md:flex" data-action="click->event#launch">Postulate a un bootcamp!</a>
         </div>
       </div>
     </header>
@@ -115,6 +115,10 @@
                               <p class="py-0 px-3 shrink text-sm text-white bg-indigo-500 hover:bg-indigo-600 rounded" data-purchase-target="hours"></p>
                             </div>
                             <p class="text-gray-600 dark:text-gray-300 mb-6 h-28" data-purchase-target="description"></p>
+                            <div class="my-2">
+                              <p class="text-gray-600 dark:text-gray-300" data-purchase-target="dates"></p>
+                              <p class="text-gray-600 dark:text-gray-300" data-purchase-target="time"></p>
+                            </div>
                           </div>
                         </div>
 
@@ -254,6 +258,10 @@
                                 data-purchase-restriction="<%= course[:restriction] %>"
                                 data-purchase-hours="<%= course[:hours] %>"
                                 data-purchase-title="<%= course[:name] %>"
+                                data-purchase-trigger="<%= course[:event] %>"
+                                data-purchase-dates="<%= course[:dates] %>"
+                                data-purchase-time="<%= course[:time] %>"
+                                data-purchase-format="<%= course[:format] %>"
                                 id=<%= course[:name] %>
                                 >
                           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -341,7 +349,7 @@
               Podrás convertirte en desarrollador web, experto en datos, freelance o emprendedor. Libera todo tu potencial con nuestros cursos.
             </p>
             <div class="flex justify-center space-x-4">
-              <a href="https://wa.me/5491128243580?text=Hola!%20Quiero%20saber%20mas" data-action="click->purchase#contact" target="_blank" class="bg-white text-indigo-900 px-6 py-3 rounded-md hover:bg-gray-100 transition duration-300">Empezar ahora!</a>
+              <a href="https://wa.me/5491128243580?text=Hola! Me gustaría recibir más información." data-action="click->purchase#contact" target="_blank" class="bg-white text-indigo-900 px-6 py-3 rounded-md hover:bg-gray-100 transition duration-300">Empezar ahora!</a>
             </div>
           </div>
         </div>

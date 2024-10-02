@@ -1,7 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ["wallet", "modal", "real", "original", "description", "hours", "title", "restriction"]
+  static targets = ["wallet", "modal", "real", "original", "description", "hours", "title", "restriction", "dates", "time"]
   static values = {
     courseName: String,
     coursePrice: String,
@@ -29,6 +29,8 @@ export default class extends Controller {
 
   downloadSyllabus(event) {
     event.preventDefault()
+
+    console.log("trigger")
 
     fbq('trackCustom', 'descarga_syllabus_bootcamp');
     gtag('event', 'descarga_syllabus_bootcamp');
@@ -92,5 +94,13 @@ export default class extends Controller {
     this.hoursTarget.innerText = `${event.currentTarget.dataset.purchaseHours} horas`
     this.restrictionTarget.innerText = event.currentTarget.dataset.purchaseRestriction
     this.titleTarget.innerText = event.currentTarget.dataset.purchaseCourseName
+
+    if (event.currentTarget.dataset.purchaseFormat === "sync") {
+      this.datesTarget.innerText = `Fechas: ${event.currentTarget.dataset.purchaseDates}`
+      this.timeTarget.innerText = `Horario: ${event.currentTarget.dataset.purchaseTime}`
+    } else {
+      this.datesTarget.innerText = ""
+      this.timeTarget.innerText = ""
+    }
   }
 }
