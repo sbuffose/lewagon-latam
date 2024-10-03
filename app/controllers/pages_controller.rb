@@ -151,7 +151,7 @@ class PagesController < ApplicationController
       }
     ]
 
-    value = 1
+    value = 1000
     preference_data = {}
 
     short_courses = @async + @courses
