@@ -27,10 +27,8 @@ export default class extends Controller {
     window.open(event.currentTarget.href, '_blank').focus();
   }
 
-  downloadSyllabus(event) {
+  syllabus(event) {
     event.preventDefault()
-
-    console.log("trigger")
 
     fbq('trackCustom', 'descarga_syllabus_bootcamp');
     gtag('event', 'descarga_syllabus_bootcamp');
